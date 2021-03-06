@@ -1,0 +1,39 @@
+#+TITLE: Past clock insertion helpers
+
+Helpers to insert past clocks. At the moment there are two helpers: one function
+  to call manually to make insertion of past clocks easier and another helper is
+  a hook function that runs automatically upon setting appointments (i.e.
+  headlines with time specifications) as done.
+
+* Installation
+
+#+begin_src elisp
+(use-package org-clock-helpers
+  ;; TODO: Add keybinding example to use-package
+  ;; Only if you want to insert clock automatically for appointments
+  :config
+  (org-clock-helpers-appt-clock-load))
+#+end_src
+
+Suggested keybinding setting for doom emacs:
+#+begin_src elisp
+(map! :map org-mode-map
+      :localleader
+      (:prefix ("c" . "clock")
+       :desc "Insert past clock" "p" #'org-insert-past-clock))
+#+end_src
+
+Receipe for package.el for doom emacs:
+#+begin_src elisp
+(package! org-clock-helpers
+  :recipe (:repo "mskorzhinskiy/org-clock-helpers"
+           :host github :branch "main"))
+#+end_src
+
+* Why clock appointments?
+
+There is no setting that adds appointments to the clock reports and I don't
+  think you need one. With this package you can don't bother with starting and
+  ending clocks, instead just mark appointments as done and eventually the time
+  will be added to the clock report. If appointment took a bit more or less
+  time, fix its time before marking entry as done.
