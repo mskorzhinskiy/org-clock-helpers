@@ -25,7 +25,7 @@
 ;; Insert past clocks for appointments
 ;;
 
-(defcustom org-clock-helpers-appt-clock-keywords org-done-keywords
+(defcustom org-clock-helpers-appt-clock-keywords (list "DONE")
   "A list of keywrods triggering insertion of clock entry.
 
 Useful if you don't want to insert clock for some of the
